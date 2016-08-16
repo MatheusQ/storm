@@ -7,11 +7,10 @@
 - Matheus Queiroz RA: 160364 || Email: madaqz@gmail.com || GitHub: MatheusQ
 
 ### Motivação
-  O objetivo do programa é mostrar dados meteorológicos de algumas cidades serranas e litoraneas. Com isso, auxiliar o usuário a escolher o melhor destino para sua viagem. O sistema também irá analizar os dados meteorológicos destas cidades e sugerir melhor destino para aquele periodo. 
+  Auxiliar surfistas a encontrar praias com ondas propícias a prática do surf no período. Pensando no fato que o esporte será uma das novas modalidades inclusas nas olimpiadas de 2020 em Toquio, essa ferramenta será um importante aliada para o treinamento dos nossos atletas.
 
 #### Fontes de Dados
-<http://www.inmet.gov.br/portal/> </br>
-<http://www.ft.unicamp.br/dadosmeteorologicos>
+<http://servicos.cptec.inpe.br/XML/#header>
 
 #### Descrição dos dados
   Desenvolver
