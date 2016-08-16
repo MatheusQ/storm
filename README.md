@@ -30,5 +30,6 @@ vento_dir -> direção dos ventos
   XML
   
 #### Pelo menos um exemplo de consulta que pode ser realizada e como seria a apresentação gráfica do resultado
-  Desenvolver
+  Buscar por cidade, exemplo: Rio de Janeiro <br/>
+  Mostrar todos os campos em forma de uma tabela.
 
