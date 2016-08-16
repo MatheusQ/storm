@@ -24,10 +24,10 @@ vento -> Força do vento<br/>
 vento_dir -> direção dos ventos
   
 #### Volume de dados
-  Desenvolver
+  Aproximadamente 6.600 bytes
   
 #### Formato de disponibilização dos dados
-  Desenvolver
+  XML
   
 #### Pelo menos um exemplo de consulta que pode ser realizada e como seria a apresentação gráfica do resultado
   Desenvolver
