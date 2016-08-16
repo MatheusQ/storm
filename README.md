@@ -7,7 +7,7 @@
 - Matheus Queiroz RA: 160364 || Email: madaqz@gmail.com || GitHub: MatheusQ
 
 ### Motivação
-  Desenvolver
+  O objetivo do programa é mostrar dados meteorológicos de algumas cidades serranas e litoraneas. Com isso, auxiliar o usuário a escolher o melhor destino para sua viagem. O sistema também irá analizar os dados meteorológicos destas cidades e sugerir melhor destino para aquele periodo. 
 
 #### Fontes de Dados
 <http://www.inmet.gov.br/portal/> </br>
