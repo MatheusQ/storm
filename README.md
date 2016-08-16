@@ -13,7 +13,15 @@
 <http://servicos.cptec.inpe.br/XML/#header>
 
 #### Descrição dos dados
-  Desenvolver
+nome -> Nome da cidade<br/> 
+uf -> Estado<br/>
+atualizacao -> dia da atualização dos dados no sistema<br/>
+dia -> Dia e horário da pesquisa<br/>
+agitacao -> intensidade das ondas<br/>
+altura -> altura média das ondas<br/>
+direcao -> Direção das ondas<br/>
+vento -> Força do vento<br/>
+vento_dir -> direção dos ventos
   
 #### Volume de dados
   Desenvolver
