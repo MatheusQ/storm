@@ -10,8 +10,6 @@ package storm;
  * @author matheus
  */
 
-//Esqueleto de classe para que um usuário possa ser cadastrado no sistema
-
 public class Usuario {
     //ATRIBUTOS
     
