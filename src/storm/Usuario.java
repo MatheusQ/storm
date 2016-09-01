@@ -60,27 +60,27 @@ public class Usuario {
     
     //MÉTODOS DE RETORNO
     
-    public String getNome(String nome){
+    public String getNome(){
         return this.nome;
     }
     
-    public String getSobrenome(String sobrenome){
+    public String getSobrenome(){
         return this.sobrenome;
     }
     
-    public String getNascimento(String nascimento){
+    public String getNascimento(){
         return this.nascimento;
     }
     
-    public String getCargo(String cargo){
+    public String getCargo(){
         return this.cargo;
     }
     
-    public String getInstituicao(String instituicao){
+    public String getInstituicao(){
         return this.instituicao;
     }
     
-    public int getNivel(int nivel){
+    public int getNivel(){
         return this.nivel;
     }
     
