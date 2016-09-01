@@ -88,7 +88,4 @@ public class Usuario {
         return this.idade;
     }
     
-    public void teste(){
-        
-    }
 }
