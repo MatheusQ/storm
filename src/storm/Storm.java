@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package storm;
+import Interface.Login;
 
 /**
  *
@@ -16,6 +17,9 @@ public class Storm {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+            Login login = new Login();  
+      
+            login.setVisible(true);  
     }
     
 }
