@@ -15,10 +15,12 @@ public class Usuario {
     
     //Obrigatórios.
     private String nome;
-    private String sobrenome;       
+    private String sobrenome; 
+    private String login;
     //Fim Obrigatórios.
     
     //Opcionais (podemos ou não inserir/usar essas informações).
+    private String email;
     private String nascimento;            
     private String cargo;           //Profissional ou estudante.
     private String instituicao;     //Instituição da qual faz parte.
@@ -35,6 +37,14 @@ public class Usuario {
     
     public void setSobrenome(String sobrenome){
         this.sobrenome = sobrenome;
+    }
+    
+    public void setLogin(String login){
+        this.login = login;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
     }
     
     public void setNascimento(String nascimento){
@@ -57,7 +67,7 @@ public class Usuario {
         //Calcula idade do usuário, conforme data de nascimento inserida.
     }
     
-    
+
     //MÉTODOS DE RETORNO
     
     public String getNome(){
@@ -66,6 +76,14 @@ public class Usuario {
     
     public String getSobrenome(){
         return this.sobrenome;
+    }
+    
+    public String getLogin(){
+        return this.login;
+    }
+    
+    public String getEmail(String email){
+        return this.email;
     }
     
     public String getNascimento(){
