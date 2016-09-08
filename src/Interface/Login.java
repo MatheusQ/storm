@@ -143,13 +143,16 @@ public class Login extends javax.swing.JFrame {
 
     private void novoUserMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUserMIActionPerformed
         // TODO add your handling code here:
+        CadastroUsuario CadastroUsuario = new CadastroUsuario();
+
+        CadastroUsuario.setVisible(true);
     }//GEN-LAST:event_novoUserMIActionPerformed
 
     private void alterarSenhaMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSenhaMIActionPerformed
         // TODO add your handling code here:
-            AlterarSenha alterarSenha = new AlterarSenha();  
-      
-            alterarSenha.setVisible(true);  
+        AlterarSenha alterarSenha = new AlterarSenha();
+
+        alterarSenha.setVisible(true);
     }//GEN-LAST:event_alterarSenhaMIActionPerformed
 
     /**
