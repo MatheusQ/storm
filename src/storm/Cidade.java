@@ -6,6 +6,7 @@
 package storm;
 
 import java.awt.List;
+import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,5 +20,5 @@ public class Cidade {
     private String nome;
     private String uf;
     private String atualizacao;
-    private List<Previsao> prev;
+    private ArrayList<Previsao> prev;
 }
