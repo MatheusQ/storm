@@ -43,7 +43,7 @@ public class AlterarSenha extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("Usuário");
 
         jLabel2.setText("Senha");
 
@@ -56,7 +56,7 @@ public class AlterarSenha extends javax.swing.JFrame {
             }
         });
 
-        jMenu2.setText("Usuario");
+        jMenu2.setText("Usuário");
 
         voltarMI.setText("Voltar");
         jMenu2.add(voltarMI);

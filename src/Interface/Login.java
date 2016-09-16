@@ -68,9 +68,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Usuario");
+        jMenu1.setText("Usuário");
 
-        novoUserMI.setText("Novo Usuario");
+        novoUserMI.setText("Novo Usuário");
         novoUserMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novoUserMIActionPerformed(evt);
