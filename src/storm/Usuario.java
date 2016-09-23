@@ -39,7 +39,7 @@ public class Usuario extends Arquivo{
     this.nome=nome;
     this.sobrenome=sobrenome;
     this.nascimento=nasc;
-    this.nacionalidade=nacionalidade;
+    this.nacionalidade=nacional;
     this.email=email;
     this.login=login;
     this.senha=senha;
@@ -63,16 +63,19 @@ public class Usuario extends Arquivo{
         return (texto);
     }
 
+    @Override
     protected String ArquivoNome() {
         String s = DiretorioNome() + "Usuario_" + this.getNome() + ".Usuario";
         return s;
     }
 
+    @Override
     protected String DiretorioNome() {
         String s = "Arquivos" + File.separator + "Usuario" + File.separator;
         return s;
     }
 
+    @Override
     public Usuario Load(String nome) {
         File arquivo = new File(DiretorioNome() + nome);
         Usuario t = null;
@@ -86,6 +89,7 @@ public class Usuario extends Arquivo{
         }
     }
 
+    @Override
     public ArrayList<Usuario> LoadAll() {
         ArrayList<Usuario> t = null;
 
