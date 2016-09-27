@@ -10,16 +10,39 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  *
  * @author Felipe Batoni
  */
-@XmlRootElement (name="cidade")
-public class Cidade {
+
+@XmlRootElement(name = "cidade")
+public class Cidade implements Serializable {    
     private String nome;
     private String uf;
     private String atualizacao;
     private ArrayList<Previsao> prev;
+
+    public Cidade(String nome, String uf, String atualizacao) {
+        this.nome = nome;
+        this.uf = uf;
+        this.atualizacao = atualizacao;
+    }
+
+    public void nome(String nome) {
+        this.nome = nome;
+    }
+
+    public void uf(String uf) {
+        this.uf = uf;
+    }
+
+    public void atualizacao(String atualizacao) {
+        this.atualizacao = atualizacao;
+    }
+
+    public void getXml() {
+        
+    }
 }
-teste
