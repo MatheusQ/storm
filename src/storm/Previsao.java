@@ -5,11 +5,13 @@
  */
 package storm;
 
+import java.io.Serializable;
+
 /**
  *
  * @author felipe batoni
  */
-public class Previsao {
+public class Previsao implements Serializable {
     private String dia;
     private String agitacao;
     private String altura;
