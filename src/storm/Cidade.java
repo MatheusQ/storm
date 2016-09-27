@@ -22,3 +22,4 @@ public class Cidade {
     private String atualizacao;
     private ArrayList<Previsao> prev;
 }
+teste
