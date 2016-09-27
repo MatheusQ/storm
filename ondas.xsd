@@ -1,0 +1,23 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="nome"/>
+        <xs:element type="xs:string" name="uf"/>
+        <xs:element type="xs:date" name="atualizacao"/>
+        <xs:element name="previsao" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="dia"/>
+              <xs:element type="xs:string" name="agitacao"/>
+              <xs:element type="xs:float" name="altura"/>
+              <xs:element type="xs:string" name="direcao"/>
+              <xs:element type="xs:float" name="vento"/>
+              <xs:element type="xs:string" name="vento_dir"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
