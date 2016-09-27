@@ -7,6 +7,8 @@ package Interface;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import storm.Usuario;
 
@@ -52,6 +54,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
     public CadastroUsuario() {
         initComponents();
     }
+    
+    public void limpar() {
+       nomeTF.setText("");
+       sobrenomeTF.setText("");
+       nacTF.setText("");
+       dataNascTF.setText("");
+       emailTF.setText("");
+       loginTF.setText("");
+       senhaTF.setText("");
+       
+       
+      
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,20 +79,20 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        nomeTF = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         sobrenomeTF = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        nomeTF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         emailTF = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        dataNascTF = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        instituiTF = new javax.swing.JTextField();
+        loginTF = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         senhaTF = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        loginTF = new javax.swing.JTextField();
+        nacTF = new javax.swing.JTextField();
         cadastraBtt = new javax.swing.JButton();
+        dataNascTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,18 +101,18 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel1.setText("Nome:");
 
-        nomeTF.addActionListener(new java.awt.event.ActionListener() {
+        sobrenomeTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeTFActionPerformed(evt);
+                sobrenomeTFActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel2.setText("Sobrenome:");
 
-        sobrenomeTF.addActionListener(new java.awt.event.ActionListener() {
+        nomeTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sobrenomeTFActionPerformed(evt);
+                nomeTFActionPerformed(evt);
             }
         });
 
@@ -123,6 +138,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel7.setText("Nacionalidade: ");
 
         cadastraBtt.setText("Cadastrar");
+        cadastraBtt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastraBttActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -134,7 +154,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(instituiTF)
+                        .addComponent(loginTF)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,17 +172,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sobrenomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeTF))
+                                .addComponent(sobrenomeTF))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                                .addComponent(loginTF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(nacTF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(171, 171, 171)
@@ -175,15 +195,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sobrenomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(sobrenomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(dataNascTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(loginTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nacTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataNascTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -191,7 +211,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(instituiTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(senhaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
@@ -217,13 +237,30 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTFActionPerformed
 
+    private void nomeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeTFActionPerformed
+
     private void sobrenomeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobrenomeTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sobrenomeTFActionPerformed
 
-    private void nomeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTFActionPerformed
+    private void cadastraBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBttActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeTFActionPerformed
+        
+        
+        Usuario u = new Usuario(nomeTF.getText(), sobrenomeTF.getText(), dataNascTF.getText(),nacTF.getText(), emailTF.getText(), loginTF.getText(), senhaTF.getText());
+        limpar();
+        usuarios.add(u);
+        
+         try {
+             u.Save();
+             //System.out.println("\n* Novo  cadastrado\n* "+ funcionarios);
+         } catch (IOException ex) {
+             Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+         }
+
+    }//GEN-LAST:event_cadastraBttActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,7 +301,6 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton cadastraBtt;
     private javax.swing.JTextField dataNascTF;
     private javax.swing.JTextField emailTF;
-    private javax.swing.JTextField instituiTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -274,6 +310,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField loginTF;
+    private javax.swing.JTextField nacTF;
     private javax.swing.JTextField nomeTF;
     private javax.swing.JTextField senhaTF;
     private javax.swing.JTextField sobrenomeTF;
