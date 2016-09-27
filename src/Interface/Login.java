@@ -131,6 +131,10 @@ public class Login extends javax.swing.JFrame {
 
     private void logarBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBttActionPerformed
         // TODO add your handling code here:
+        
+        Previsao previsao = new Previsao();
+
+        previsao.setVisible(true);
     }//GEN-LAST:event_logarBttActionPerformed
 
     private void usuarioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTFActionPerformed

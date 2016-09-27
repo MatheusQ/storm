@@ -28,13 +28,13 @@ public class Usuario extends Arquivo{
     
     //Opcionais (podemos ou não inserir/usar essas informações).
     private String email;
-    private Date nascimento;            
+    private String nascimento;            
     private String nacionalidade;           //Profissional ou estudante.
  
     
     //MÉTODOS DE ALTERAÇÃO
 
-    public Usuario(String nome , String sobrenome ,Date nasc ,String nacional , String email ,String login, String senha  ) {
+    public Usuario(String nome , String sobrenome ,String nasc ,String nacional , String email ,String login, String senha  ) {
     
     this.nome=nome;
     this.sobrenome=sobrenome;
@@ -175,14 +175,14 @@ public class Usuario extends Arquivo{
     /**
      * @return the nascimento
      */
-    public Date getNascimento() {
+    public String getNascimento() {
         return nascimento;
     }
 
     /**
      * @param nascimento the nascimento to set
      */
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
 

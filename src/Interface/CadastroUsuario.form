@@ -53,7 +53,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="instituiTF" max="32767" attributes="0"/>
+                          <Component id="loginTF" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="46" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -74,7 +74,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="sobrenomeTF" min="-2" pref="126" max="-2" attributes="0"/>
+                                  <Component id="nomeTF" min="-2" pref="126" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -82,12 +82,12 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nomeTF" max="32767" attributes="0"/>
+                                  <Component id="sobrenomeTF" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="41" max="32767" attributes="0"/>
-                                  <Component id="loginTF" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="nacTF" min="-2" pref="93" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -107,16 +107,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nomeTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="sobrenomeTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dataNascTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="loginTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nacTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dataNascTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -126,7 +126,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="instituiTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="loginTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="senhaTF" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -146,9 +146,9 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomeTF">
+        <Component class="javax.swing.JTextField" name="sobrenomeTF">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeTFActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sobrenomeTFActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -159,9 +159,9 @@
             <Property name="text" type="java.lang.String" value="Sobrenome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="sobrenomeTF">
+        <Component class="javax.swing.JTextField" name="nomeTF">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sobrenomeTFActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeTFActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -185,8 +185,6 @@
             <Property name="text" type="java.lang.String" value="Nascimento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="dataNascTF">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -195,7 +193,7 @@
             <Property name="text" type="java.lang.String" value="Login:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="instituiTF">
+        <Component class="javax.swing.JTextField" name="loginTF">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -215,12 +213,17 @@
             <Property name="text" type="java.lang.String" value="Nacionalidade: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="loginTF">
+        <Component class="javax.swing.JTextField" name="nacTF">
         </Component>
         <Component class="javax.swing.JButton" name="cadastraBtt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastraBttActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="dataNascTF">
         </Component>
       </SubComponents>
     </Container>
