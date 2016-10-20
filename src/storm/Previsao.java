@@ -19,6 +19,13 @@ public class Previsao implements Serializable {
     private String vento;
     private String ventoDir;
     
+    
+    
+    
+    public  Previsao(){
+    
+    }
+    
     public Previsao (String dia, String agitacao, String altura, String direcao, String vento, String ventoDir) {
         this.dia = dia;
         this.agitacao = agitacao;
