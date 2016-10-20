@@ -33,6 +33,7 @@ public class Storm {
         Document doc; 
         doc=xml.Carrega();
         xml.Cidade(doc);
+        xml.XmlPrvisao(doc);
 
              
             //Login login = new Login();  

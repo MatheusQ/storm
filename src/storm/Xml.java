@@ -121,21 +121,20 @@ public class Xml {
             System.out.println("\nCurrent Element :" + nNode.getNodeName());
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                Element eElement = (Element) nNode;
-               //System.out.println("Cidade " + eElement.getAttribute("cidade"));
-              // System.out.println("agitacao " + eElement.getElementsByTagName("agitacao").item(0)
-               // .getTextContent());
-              // System.out.println("Dia : " + eElement
-               //   .getElementsByTagName("dia").item(0).getTextContent());
-              // System.out.println("agitacao " + eElement.getElementsByTagName("agitacao").item(0)
-               //   .getTextContent());
-               System.out.println("altura : " + eElement.getElementsByTagName("altura").item(0)
-                  .getTextContent());
-                System.out.println("Direcao : " + eElement.getElementsByTagName("direcao").item(0)
-                  .getTextContent());
-                 System.out.println("Vento : " + eElement.getElementsByTagName("vento").item(0)
-                  .getTextContent());
-                  System.out.println("altura : " + eElement.getElementsByTagName("altura").item(0)
-                  .getTextContent());
+              
+               System.out.println("Cidade " +  XmlGetCidade(eElement));
+
+               System.out.println("agitacao " +XmlGetAgitacao(eElement)); 
+
+               System.out.println("Dia " + XmlGetDia(eElement) );
+          
+                System.out.println("Altura " + XmlGetAltura(eElement)); 
+ 
+                System.out.println("Direcao " +XmlGetDirecao(eElement)); 
+ 
+                System.out.println("Vento" + XmlGetVento(eElement));
+                //  System.out.println("altura : " + eElement.getElementsByTagName("altura").item(0)
+                //  .getTextContent());
             }
          }
       }
@@ -175,7 +174,30 @@ public class Xml {
        
             return altura;
        }
+       
+       
+       public String XmlGetDirecao(Element eElement){
+           String direcao;
+           
+            direcao=eElement.getElementsByTagName("direcao").item(0).getTextContent();
+       
+       
+           return direcao;
+       }
       
+       
+       public String XmlGetVento(Element eElement){
+           String vento;
+           
+           vento=eElement.getElementsByTagName("vento").item(0).getTextContent();
+           
+           return vento;
+       }
+       
+       
+ 
+       
+       
       
       }
 
