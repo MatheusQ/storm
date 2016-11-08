@@ -5,6 +5,7 @@
  */
 package storm;
 
+import storm.Previsao;
 import java.awt.List;
 import java.util.ArrayList;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,7 +23,12 @@ public class Cidade implements Serializable {
     private String nome;
     private String uf;
     private String atualizacao;
-    private ArrayList<Previsao> prev;
+    public ArrayList<Previsao> prev;
+
+    public Cidade() {
+    }
+    
+    
 
     public Cidade(String nome, String uf, String atualizacao) {
         this.nome = nome;
@@ -44,5 +50,10 @@ public class Cidade implements Serializable {
 
     public void getXml() {
         
+    }
+    
+    public String getNome(){
+    
+        return nome;
     }
 }
