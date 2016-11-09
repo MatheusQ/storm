@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author felipe batoni
  */
-public class Previsao implements Serializable {
+public class Previsao  {
     private String dia;
     private String agitacao;
     private String altura;

@@ -29,15 +29,20 @@ public class Storm {
      */
     public static void main(String[] args) throws JAXBException, SAXException, ParserConfigurationException, IOException {
         // TODO code application logic here
+        
+        Cidade cidade = new Cidade();
       Xml xml = new Xml();
       xml.BaixaArquivo();
-       // Document doc; 
-        //doc=xml.Carrega();
-        //xml.Cidade(doc);
-        //xml.XmlPrvisao(doc);
-      //  Cidade cidade = new Cidade();
+        Document doc; 
+        doc=xml.Carrega();
+        cidade = xml.getXmlCidade(doc);
+       // xml.XmlPrvisao(doc);
     //    cidade.arquivo("cidades");
         //cidade.LeArray();
+        System.out.println(cidade.getNome());
+        System.out.println(cidade.getUf());
+        System.out.println(cidade.getAtualizacao());
+        
 
              
             //Login login = new Login();  

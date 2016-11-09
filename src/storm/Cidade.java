@@ -20,21 +20,19 @@ import java.io.Serializable;
  * @author Felipe Batoni
  * @author Joseffer Leite
  */
-
 @XmlRootElement(name = "cidade")
-public class Cidade implements Serializable {    
+public class Cidade implements Serializable {
+
     private String nome;
     private String uf;
     private String atualizacao;
-    //private ArrayList<Previsao> prev;
-    private ArrayList<String> nomeCidades = new ArrayList<>();
-    
+    private ArrayList<Previsao> prev;
 
-     Cidade() {
-        
+    private ArrayList<String> nomeCidades = new ArrayList<>();
+
+    Cidade() {
+
     }
-    
-    
 
     public Cidade(String nome, String uf, String atualizacao) {
         this.nome = nome;
@@ -42,52 +40,42 @@ public class Cidade implements Serializable {
         this.atualizacao = atualizacao;
     }
 
-    public void nome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void uf(String uf) {
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setUf(String uf) {
         this.uf = uf;
     }
 
-    public void atualizacao(String atualizacao) {
+    public String getUf() {
+        return this.uf;
+    }
+
+    public void setAtualizacao(String atualizacao) {
         this.atualizacao = atualizacao;
     }
 
-public void arquivo(String nome){
-    try {
-      FileReader arq = new FileReader(nome);
-      BufferedReader lerArq = new BufferedReader(arq);
- 
-      String linha = lerArq.readLine(); // lê a primeira linha
-// a variável "linha" recebe o valor "null" quando o processo
-// de repetição atingir o final do arquivo texto
-    
-      while (linha != null) {
-        nomeCidades.add(linha);
-        linha = lerArq.readLine(); // lê da segunda até a última linha
-      }
- 
-      arq.close();
-    } catch (IOException e) {
-        System.err.printf("Erro na abertura do arquivo: %s.\n",
-          e.getMessage());
+    public String getAtualizacao() {
+        return this.atualizacao;
     }
- 
-    System.out.println();
-  }
-    
-    public void LeArray(){
-    
-        for(int a = 0 ; a <= nomeCidades.size();a++) {
-            
+
+
+    public void LeArray() {
+
+        for (int a = 0; a <= nomeCidades.size(); a++) {
+
             System.out.println(nomeCidades.get(a));
         }
-  
-    
-    }
-    
-    
-    }
-    
 
+    }
+
+    public void AddPrevisao(Previsao p) {
+        this.prev.add(p);
+    }
+
+}
