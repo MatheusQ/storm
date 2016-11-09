@@ -26,8 +26,7 @@ public class Cidade implements Serializable {
     private String nome;
     private String uf;
     private String atualizacao;
-    private ArrayList<Previsao> prev;
-
+    public ArrayList<Previsao> prev = new ArrayList<>();;
     private ArrayList<String> nomeCidades = new ArrayList<>();
 
     Cidade() {

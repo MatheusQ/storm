@@ -28,20 +28,6 @@ import org.xml.sax.SAXException;
  */
 public class Xml {
 
-    //função para gerar o arquivo xml e passar para outros objetos carregarem a informação no obj previsao
-    public Document Carrega() throws SAXException, ParserConfigurationException, IOException {
-        File inputFile = new File("out.xml");
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(inputFile);
-
-        doc.getDocumentElement().normalize();
-
-        return doc;
-
-    }
-
 //################### NOVAS FUNÇÕES ##################                    
     public void BaixaArquivo() throws MalformedURLException, IOException {
         URL url = new URL("http://servicos.cptec.inpe.br/XML/cidade/241/todos/tempos/ondas.xml");
@@ -65,6 +51,43 @@ public class Xml {
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
+    }
+
+    //função para gerar o arquivo xml e passar para outros objetos carregarem a informação no obj previsao
+    public Document Carrega() throws SAXException, ParserConfigurationException, IOException {
+        File inputFile = new File("out.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(inputFile);
+
+        doc.getDocumentElement().normalize();
+
+        return doc;
+
+    }
+
+    public String XmlGetNome(Element eElementc) {
+        String nome;
+        nome = eElementc.getElementsByTagName("nome").item(0).getTextContent();
+        return nome;
+
+    }
+
+    public String XmlGetUf(Element eElementc) {
+        String uf;
+
+        uf = eElementc.getElementsByTagName("uf").item(0).getTextContent();
+        return uf;
+    }
+
+    public String XmlGetAtualizacao(Element eElementc) {
+
+        String atu;
+
+        atu = eElementc.getElementsByTagName("atualizacao").item(0).getTextContent();
+        return atu;
+
     }
 
     public Cidade getXmlCidade(Document doc) {
@@ -93,54 +116,43 @@ public class Xml {
         return city;
     }
 
-    public String XmlGetNome(Element eElementc) {
-        String nome;
-        nome = eElementc.getElementsByTagName("nome").item(0).getTextContent();
-        return nome;
-
-    }
-
-    public String XmlGetUf(Element eElementc) {
-        String uf;
-
-        uf = eElementc.getElementsByTagName("uf").item(0).getTextContent();
-        return uf;
-    }
-
-    public String XmlGetAtualizacao(Element eElementc) {
-
-        String atu;
-
-        atu = eElementc.getElementsByTagName("atualizacao").item(0).getTextContent();
-        return atu;
-
-    }
-
-    public void XmlPrvisao(Document doc) {
-
+    public void XmlPrevisao(Document doc, Cidade city) {
+       // Previsao objPrevisao = new Previsao();
+        
+        
         NodeList nList = doc.getElementsByTagName("previsao");
 
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Node nNode = nList.item(temp);
+            Previsao objPrevisao = new Previsao();
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
 
-                System.out.println("agitacao: " + XmlGetAgitacao(eElement));
+               // System.out.println("agitacao: " + XmlGetAgitacao(eElement));
+                objPrevisao.setAgitacao(XmlGetAgitacao(eElement));
 
-                System.out.println("Dia: " + XmlGetDia(eElement));
+               // System.out.println("Dia: " + XmlGetDia(eElement));
+                objPrevisao.setDia(XmlGetDia(eElement));
 
-                System.out.println("Altura: " + XmlGetAltura(eElement));
+               // System.out.println("Altura: " + XmlGetAltura(eElement));
+                objPrevisao.setAltura(XmlGetAltura(eElement));
 
-                System.out.println("Direcao: " + XmlGetDirecao(eElement));
+                //System.out.println("Direcao: " + XmlGetDirecao(eElement));
+                objPrevisao.setDirecao(XmlGetDirecao(eElement));
 
-                System.out.println("Vento: " + XmlGetVento(eElement));
+                //System.out.println("Vento: " + XmlGetVento(eElement));
+                objPrevisao.setVento(XmlGetVento(eElement));
+                
+                //System.out.println("Vento_Dir: " + XmlGetVentoDir(eElement));
+                objPrevisao.setVentoDir(XmlGetVentoDir(eElement));
+                
 
-                System.out.println("Vento_Dir: " + XmlGetVentoDir(eElement));
-
-                System.out.println("\n\n");
+                //System.out.println("\n\n");
+                city.AddPrevisao(objPrevisao);
 
             }
         }
+        return ;
     }
 
     public String XmlGetCidade(Element eElement) {

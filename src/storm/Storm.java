@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package storm;
+
 import Interface.Login;
 import java.io.File;
 import java.io.IOException;
@@ -29,28 +30,44 @@ public class Storm {
      */
     public static void main(String[] args) throws JAXBException, SAXException, ParserConfigurationException, IOException {
         // TODO code application logic here
-        
+
         Cidade cidade = new Cidade();
-      Xml xml = new Xml();
-      xml.BaixaArquivo();
-        Document doc; 
-        doc=xml.Carrega();
+        Previsao prev = new Previsao();
+
+        Xml xml = new Xml();
+        xml.BaixaArquivo();
+        Document doc;
+        doc = xml.Carrega();
         cidade = xml.getXmlCidade(doc);
-       // xml.XmlPrvisao(doc);
-    //    cidade.arquivo("cidades");
+
+        xml.XmlPrevisao(doc,cidade);
+
+        //    cidade.arquivo("cidades");
         //cidade.LeArray();
         System.out.println(cidade.getNome());
         System.out.println(cidade.getUf());
         System.out.println(cidade.getAtualizacao());
-        
+        System.out.println("\n\n");
 
-             
-            //Login login = new Login();  
-      
-         //   login.setVisible(true);  
-           
-         
+        /*
+        System.out.println(prev.getAgitacao());
+        System.out.println(prev.getDia());
+        System.out.println(prev.getAltura());
+        System.out.println(prev.getDirecao());
+        System.out.println(prev.getVento());
+        System.out.println(prev.getVentoDir());
+*/     for(int a =0 ; a< cidade.prev.size();a++){
+	prev = cidade.prev.get(a);
+        System.out.println(prev.getAgitacao());
+        System.out.println(prev.getDia());
+        System.out.println(prev.getAltura());
+        System.out.println(prev.getDirecao());
+        System.out.println(prev.getVento());
+        System.out.println(prev.getVentoDir());
+        System.out.println("\n");
+    }
+        //Login login = new Login();  
+        //   login.setVisible(true);  
     }
 
-    
 }
