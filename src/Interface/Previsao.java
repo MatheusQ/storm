@@ -22,6 +22,20 @@ public class Previsao extends javax.swing.JFrame {
      */
     public Previsao() {
         initComponents();
+        carregaEstados();
+
+    }
+
+    private void carregaEstados() {
+        jComboEstado.removeAllItems();
+        String mostra;
+        Cidade city = new Cidade();
+        city.lerArquivo();
+
+        for (int a = 0; a < city.nomeCidades.size(); a++) {
+            mostra = city.nomeCidades.get(a);
+            jComboEstado.addItem(mostra);
+        }
     }
 
     /**
@@ -129,6 +143,14 @@ public class Previsao extends javax.swing.JFrame {
         jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboEstado.setToolTipText("Seleicone");
         jComboEstado.setName(""); // NOI18N
+        jComboEstado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboEstadoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jComboEstadoMouseEntered(evt);
+            }
+        });
         jComboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboEstadoActionPerformed(evt);
@@ -395,7 +417,12 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton12.setText("jButton12");
+        jButton12.setText("Voltar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -415,7 +442,7 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(381, 381, 381)
-                .addComponent(jButton12)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -594,7 +621,12 @@ public class Previsao extends javax.swing.JFrame {
 
         jLabelHora4.setText("Hora 4");
 
-        jButton13.setText("jButton13");
+        jButton13.setText("Voltar");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -641,7 +673,7 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(388, 388, 388)
-                .addComponent(jButton13)
+                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -743,7 +775,7 @@ public class Previsao extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(abas, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(abas, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
         );
 
         abas.getAccessibleContext().setAccessibleName("Escolha a cidade");
@@ -765,7 +797,6 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-
         //DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
         Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
         storm.Previsao p = new storm.Previsao("9h", "10ag", "5m", "Leste", "Forte", "Sul");
@@ -777,13 +808,11 @@ public class Previsao extends javax.swing.JFrame {
         //String[] linha3 = {"20/10","Ondas 30m"};
         //colunas.add(p.getDia());
         //colunas.add("Previsão");
-
         //tabela1.addColumn(colunas);
-        
         jLabelHora1.setText(p.getDia());
-        
+
         Vector<Vector> linhas = new Vector<>();
-        
+
         Vector<String> linha1 = new Vector<>();
         linha1.add("Agitação");
         linha1.add(p.getAgitacao());
@@ -809,7 +838,7 @@ public class Previsao extends javax.swing.JFrame {
         linha5.add(p.getVentoDir());
         linhas.add(linha5);
 
-        for(int i=0; i<4; i++){
+        for (int i = 0; i < 4; i++) {
             tabela1.addRow(linhas.get(i));
         }
 
@@ -820,13 +849,12 @@ public class Previsao extends javax.swing.JFrame {
         //String coluna[] = {"Dia"};
         //jLabelEstado.setText(jComboEstado.getSelectedItem() + "");
         //jLabelCidade.setText(jComboCidade.getSelectedItem() + "");
-
         //tabela1.setNumRows(0);
         //tabela1.addColumn(coluna);
         //tabela1.addRow(linha1);
         //tabela1.addRow(linha2);
         //tabela1.addRow(linha3);
-        abas.setSelectedIndex(2);
+        abas.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -855,17 +883,26 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboEstadoActionPerformed
         // TODO add your handling code here:
-        jComboEstado.removeAllItems();
-        String mostra;
-        Cidade city = new Cidade();
-        city.lerArquivo();
-        
-       for(int a = 0 ; a < city.nomeCidades.size() ;a++){
-           mostra= city.nomeCidades.get(a);
-           jComboEstado.addItem(mostra);
-       }
-                
+
+
     }//GEN-LAST:event_jComboEstadoActionPerformed
+
+    private void jComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jComboEstadoMouseClicked
+
+    private void jComboEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseEntered
+
+    }//GEN-LAST:event_jComboEstadoMouseEntered
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        abas.setSelectedIndex(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        abas.setSelectedIndex(1);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
