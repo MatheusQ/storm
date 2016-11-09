@@ -6,7 +6,10 @@
 package storm;
 
 import Interface.Login;
+
 import java.io.File;
+import Interface.CadastroUsuario;
+import Interface.Previsao;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.DocumentBuilder;
@@ -31,23 +34,25 @@ public class Storm {
     public static void main(String[] args) throws JAXBException, SAXException, ParserConfigurationException, IOException {
         // TODO code application logic here
 
-        Cidade cidade = new Cidade();
-        Previsao prev = new Previsao();
+        //Cidade cidade = new Cidade();
+        //Previsao prev = new Previsao();
+        //cidade.lerArquivo();
+        //cidade.LeArray();
 
-        Xml xml = new Xml();
-        xml.BaixaArquivo();
-        Document doc;
-        doc = xml.Carrega();
-        cidade = xml.getXmlCidade(doc);
+        //Xml xml = new Xml();
+        //xml.BaixaArquivo();
+        //Document doc;
+        //doc = xml.Carrega();
+        //cidade = xml.getXmlCidade(doc);
 
-        xml.XmlPrevisao(doc,cidade);
+        //xml.XmlPrevisao(doc,cidade);
 
         //    cidade.arquivo("cidades");
         //cidade.LeArray();
-        System.out.println(cidade.getNome());
-        System.out.println(cidade.getUf());
-        System.out.println(cidade.getAtualizacao());
-        System.out.println("\n\n");
+        //System.out.println(cidade.getNome());
+        //System.out.println(cidade.getUf());
+        //System.out.println(cidade.getAtualizacao());
+        //System.out.println("\n\n");
 
         /*
         System.out.println(prev.getAgitacao());
@@ -56,7 +61,7 @@ public class Storm {
         System.out.println(prev.getDirecao());
         System.out.println(prev.getVento());
         System.out.println(prev.getVentoDir());
-*/     for(int a =0 ; a< cidade.prev.size();a++){
+     for(int a =0 ; a< cidade.prev.size();a++){
 	prev = cidade.prev.get(a);
         System.out.println(prev.getAgitacao());
         System.out.println(prev.getDia());
@@ -66,8 +71,12 @@ public class Storm {
         System.out.println(prev.getVentoDir());
         System.out.println("\n");
     }
-        //Login login = new Login();  
-        //   login.setVisible(true);  
+*/
+        Login login = new Login();  
+           login.setVisible(true); 
+       // Previsao previsao = new Previsao();
+       // previsao.setVisible(true);
+       
     }
 
 }
