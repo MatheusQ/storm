@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import storm.Cidade;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -763,24 +764,69 @@ public class Previsao extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboCidadeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+
         //DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
-        String[] linha1 = {"18/10","Ondas 10m"};
-        String[] linha2 = {"18/10","agitacao 2"};
-       //String[] linha3 = {"20/10","Ondas 30m"};
-        List lista = new ArrayList();
-        String[] listaStr;
-        lista.add(jComboEstado.getSelectedItem() + "");
-        listaStr = (String[]) lista.toArray(new String[0]);
-        String coluna[] = {"Dia"};
-        jLabelEstado.setText(jComboEstado.getSelectedItem() + "");
-        jLabelCidade.setText(jComboCidade.getSelectedItem() + "");
+        Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
+        storm.Previsao p = new storm.Previsao("9h", "10ag", "5m", "Leste", "Forte", "Sul");
+        DefaultTableModel tabela1 = (DefaultTableModel) jTablePrevisao1.getModel();
+        tabela1.setNumRows(0);
+
+        //String[] linha1 = {"18/10","Ondas 10m"};
+        //String[] linha2 = {"18/10","agitacao 2"};
+        //String[] linha3 = {"20/10","Ondas 30m"};
+        //colunas.add(p.getDia());
+        //colunas.add("Previsão");
+
+        //tabela1.addColumn(colunas);
         
+        jLabelHora1.setText(p.getDia());
+        
+        Vector<Vector> linhas = new Vector<>();
+        
+        Vector<String> linha1 = new Vector<>();
+        linha1.add("Agitação");
+        linha1.add(p.getAgitacao());
+        linhas.add(linha1);
+
+        Vector<String> linha2 = new Vector<>();
+        linha2.add("Altura");
+        linha2.add(p.getAltura());
+        linhas.add(linha2);
+
+        Vector<String> linha3 = new Vector<>();
+        linha3.add("Direção");
+        linha3.add(p.getDirecao());
+        linhas.add(linha3);
+
+        Vector<String> linha4 = new Vector<>();
+        linha4.add("Vento");
+        linha4.add(p.getVento());
+        linhas.add(linha4);
+
+        Vector<String> linha5 = new Vector<>();
+        linha5.add("Direção vento");
+        linha5.add(p.getVentoDir());
+        linhas.add(linha5);
+
+        for(int i=0; i<4; i++){
+            tabela1.addRow(linhas.get(i));
+        }
+
+        //List lista = new ArrayList();
+        //String[] listaStr;
+        //lista.add(jComboEstado.getSelectedItem() + "");
+        //listaStr = (String[]) lista.toArray(new String[0]);
+        //String coluna[] = {"Dia"};
+        //jLabelEstado.setText(jComboEstado.getSelectedItem() + "");
+        //jLabelCidade.setText(jComboCidade.getSelectedItem() + "");
+
         //tabela1.setNumRows(0);
         //tabela1.addColumn(coluna);
         //tabela1.addRow(linha1);
         //tabela1.addRow(linha2);
         //tabela1.addRow(linha3);
-        abas.setSelectedIndex(1);
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
