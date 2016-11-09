@@ -5,8 +5,14 @@
  */
 package storm;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -39,8 +45,37 @@ public class Xml {
     }
     
                     
+//################### NOVAS FUNÇÕES ##################                    
                     
-                    
+    
+    public void BaixaArquivo() throws MalformedURLException, IOException {
+        URL url = new URL("http://servicos.cptec.inpe.br/XML/cidade/241/todos/tempos/ondas.xml");
+        //URL url = new URL("http://google.com.br");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+
+        while (reader.ready()) {
+            String line = reader.readLine();
+            //System.out.println(line);
+            EscreveXml(line);
+        }
+    }
+
+    public void EscreveXml(String line) {
+        try {
+            // Criar arquivo 
+            FileWriter fstream = new FileWriter("out.xml");
+            BufferedWriter out = new BufferedWriter(fstream);
+            out.write(line);
+            // Fechar output stream
+            out.close();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+    
+    
+    
+    
                     
                     
                     
@@ -211,4 +246,3 @@ public class Xml {
     
     
     
-
