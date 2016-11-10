@@ -26,10 +26,11 @@ public class Cidade implements Serializable {
     private String nome;
     private String uf;
     private String atualizacao;
-    public ArrayList<Previsao> prev = new ArrayList<>();;
+    public ArrayList<Previsao> prev = new ArrayList<>();
+    ;
     public ArrayList<String> nomeCidades = new ArrayList<>();
 
-   public Cidade() {
+    public Cidade() {
 
     }
 
@@ -38,8 +39,6 @@ public class Cidade implements Serializable {
         this.uf = uf;
         this.atualizacao = atualizacao;
     }
-
-  
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -65,39 +64,35 @@ public class Cidade implements Serializable {
         return this.atualizacao;
     }
 
-    
-    public void lerArquivo(){
-    try {
-      FileReader arq = new FileReader("estados.txt");
-      BufferedReader lerArq = new BufferedReader(arq);
- 
-      String linha = lerArq.readLine(); // lê a primeira linha
-// a variável "linha" recebe o valor "null" quando o processo
-// de repetição atingir o final do arquivo texto
-      while (linha != null) {
-        nomeCidades.add(linha);
- 
-        linha = lerArq.readLine(); // lê da segunda até a última linha
-      }
- 
-      arq.close();
-    } catch (IOException e) {
-        System.err.printf("Erro na abertura do arquivo: %s.\n",
-          e.getMessage());
-    }
- 
-    System.out.println();
-  
-    
-    
-    
+    public void lerEstadoCidade(String nome) {
+        try {
+            FileReader arq = new FileReader(nome);
+            BufferedReader lerArq = new BufferedReader(arq);
+
+            String linha = lerArq.readLine(); // lê a primeira linha
+            // a variável "linha" recebe o valor "null" quando o processo
+            // de repetição atingir o final do arquivo texto
+            while (linha != null) {
+                nomeCidades.add(linha);
+
+                linha = lerArq.readLine(); // lê da segunda até a última linha
+            }
+
+            arq.close();
+        } catch (IOException e) {
+            System.err.printf("Erro na abertura do arquivo: %s.\n",
+                    e.getMessage());
+        }
+
+        System.out.println();
+
     }
 
     public void LeArray() {
         String mostra;
         for (int a = 0; a < nomeCidades.size(); a++) {
 
-            mostra= nomeCidades.get(a);
+            mostra = nomeCidades.get(a);
             System.out.println(mostra);
         }
 

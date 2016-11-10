@@ -1,0 +1,32 @@
+Barreiros
+785
+Cabo de Santo Agostinho
+1058
+Fernando de Noronha
+1991
+Goiana
+2134
+Igarassu
+2359
+Ipojuca
+2449
+Itamaracá
+2542
+Itapissuma
+2592
+Jaboatão dos Guararapes
+2667
+Olinda
+3633
+Paulista
+3852
+Porto de Galinhas
+5873
+Recife
+239
+São José da Coroa Grande
+4913
+Sirinhaém
+5226
+Tamandaré
+5295

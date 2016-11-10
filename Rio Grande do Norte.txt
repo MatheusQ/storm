@@ -1,0 +1,44 @@
+Areia Branca
+612
+Baía Formosa
+697
+Caiçara do Norte
+1116
+Extremoz
+1951
+Galinhos
+2091
+Genipabu
+5901
+Grossos
+2182
+Guamaré
+2198
+Macau
+3033
+Maxaranguape
+3227
+Natal
+235
+Nísia Floresta
+3463
+Praia de Pipa
+5902
+Porto do Mangue
+4137
+Rio do Fogo
+4385
+São Bento do Norte
+4757
+São Miguel de Touros
+5003
+Senador Georgino Avelino
+5132
+Tibau
+5390
+Tibau do Sul
+5391
+Touros
+5426
+Vila Flor
+5665

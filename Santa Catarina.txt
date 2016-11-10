@@ -1,0 +1,56 @@
+Florianópolis
+228
+Araquari
+583
+Araranguá
+585
+Balneário Arroio do Silva
+707
+Balneário Barra do Sul
+708
+Balneário Gaivota
+710
+Barra Velha
+776
+Biguaçu
+861
+Bombinhas
+939
+Balneário Camboriú
+709
+Passo de Torres
+3823
+Penha
+3920
+Piçarras
+3954
+Porto Belo
+4132
+São Francisco do Sul
+4825
+São José
+4909
+Tijucas
+5394
+Garopaba
+2100
+Governador Celso Ramos
+2155
+Içara
+2339
+Imbituba
+2390
+Itajaí
+2535
+Itapema
+2574
+Itapoá
+2595
+Jaguaruna
+2708
+Laguna
+2917
+Navegantes
+3439
+Palhoça
+3711

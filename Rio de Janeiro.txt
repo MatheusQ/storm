@@ -1,0 +1,36 @@
+Angra dos Reis
+486
+Araruama
+593
+Armação de Búzios
+628
+Arraial do Cabo
+634
+Barra do São João
+5860
+Cabo Frio
+1059
+Carapebus
+1322
+Macaé
+3025
+Mangaratiba
+3089
+Maricá
+3154
+Niterói
+3464
+Rio de Janeiro
+241
+Parati
+3789
+Quissamã
+4264
+Rio das Ostras
+4380
+São João da Barra
+4855
+Saquarema
+5098
+S. F. de Itabapoana
+4813

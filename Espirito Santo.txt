@@ -1,0 +1,32 @@
+Anchieta
+468
+Aracruz
+549
+Conceição da Barra
+1551
+Guarapari
+2231
+Itapemirim
+2575
+Itaúnas
+5876
+Jaguaré
+2699
+Linhares
+2985
+Marataizes
+3125
+Nova Almeida
+5878
+Piúma
+4051
+Santa Cruz
+5879
+São Mateus
+4993
+Serra
+5156
+Vila Velha
+5676
+Vitória
+246

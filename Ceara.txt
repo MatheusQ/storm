@@ -1,0 +1,48 @@
+Canoa Quebrada
+5894
+Caponga
+5895
+Fortim
+2050
+Icapuí
+2338
+Icaraí
+5896
+Itarema
+2615
+Jijoca de Jericoacoara
+2784
+Paracuru
+3754
+Paraipaba
+3762
+Pecém
+5898
+Praia de Lagoinha
+5897
+São Gonçalo do Amarante
+4837
+Trairi
+5432
+Fortaleza
+229
+Acaraú
+267
+Amontada
+447
+Aquiraz
+535
+Aracati
+541 
+Barroquinha
+794 
+Beberibe
+808
+Camocim
+1164
+Cascavel
+1386
+Caucaia
+1426
+Cruz
+1694

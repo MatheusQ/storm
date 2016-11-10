@@ -1,0 +1,70 @@
+Alcobaça
+345
+Arraial Dajuda
+5866
+Barra Grande
+5869
+Belmonte
+827
+Cairu
+1120
+Camaçari
+1146
+Canavieiras
+1240
+Caraiva Caraíva
+5868
+Caravelas
+1329
+Conde
+1577
+Costa do Sauípe
+5867
+Cumuruxatiba
+5871
+Esplanada
+1925
+Ilha de Comandatuba
+5870
+Ilhéus
+2381
+Itacaré
+2507
+Itaparica
+2567
+Ituberá
+2646
+Jaguaripe
+2705
+Jandaíra
+2719
+Maraú
+3127
+Mata de São João
+3188
+Morro de São Paulo
+5864
+Mucuri
+3400
+Nilo Peçanha
+3456
+Nova Viçosa
+3579
+Porto Seguro
+4154
+Prado
+4174
+Santa Cruz Cabrália
+453
+Salvador
+24
+Trancoso Trancoso
+586
+Una
+5535
+Valença
+5579
+Vera Cruz
+5626
+Velha Boipeba
+5872

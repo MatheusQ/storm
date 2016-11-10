@@ -24,6 +24,8 @@ import org.xml.sax.SAXException;
 /**
  *
  * @author hack
+ * @author Felipe Batoni
+ * 
  */
 public class Storm {
 

@@ -30,12 +30,29 @@ public class Previsao extends javax.swing.JFrame {
         jComboEstado.removeAllItems();
         String mostra;
         Cidade city = new Cidade();
-        city.lerArquivo();
+        city.lerEstadoCidade("estados.txt");
 
         for (int a = 0; a < city.nomeCidades.size(); a++) {
             mostra = city.nomeCidades.get(a);
             jComboEstado.addItem(mostra);
         }
+
+        jComboEstado.setSelectedIndex(-1); //Deixa o comboBox em branco
+    }
+
+    private void carregaCidades(String cidade) {
+        String c = cidade + ".txt";
+        jComboCidade.removeAllItems();
+        String mostra;
+        Cidade city = new Cidade();
+        city.lerEstadoCidade(c);
+
+        for (int a = 0; a < city.nomeCidades.size(); a++) {
+            mostra = city.nomeCidades.get(a);
+            jComboCidade.addItem(mostra);
+        }
+
+        
     }
 
     /**
@@ -143,12 +160,22 @@ public class Previsao extends javax.swing.JFrame {
         jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboEstado.setToolTipText("Seleicone");
         jComboEstado.setName(""); // NOI18N
+        jComboEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboEstadoItemStateChanged(evt);
+            }
+        });
         jComboEstado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboEstadoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jComboEstadoMouseEntered(evt);
+            }
+        });
+        jComboEstado.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jComboEstadoComponentHidden(evt);
             }
         });
         jComboEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +185,11 @@ public class Previsao extends javax.swing.JFrame {
         });
 
         jComboCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboCidade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jComboCidadeMouseEntered(evt);
+            }
+        });
         jComboCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboCidadeActionPerformed(evt);
@@ -181,7 +213,7 @@ public class Previsao extends javax.swing.JFrame {
                         .addComponent(jComboEstado, 0, 190, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 472, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -793,6 +825,7 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jComboCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCidadeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboCidadeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -883,17 +916,16 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboEstadoActionPerformed
         // TODO add your handling code here:
-
-
     }//GEN-LAST:event_jComboEstadoActionPerformed
 
     private void jComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseClicked
         // TODO add your handling code here:
-
+        carregaCidades(jComboEstado.getSelectedItem().toString());
     }//GEN-LAST:event_jComboEstadoMouseClicked
 
     private void jComboEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseEntered
-
+        //Gamibarra
+        jComboCidade.setSelectedIndex(-1);
     }//GEN-LAST:event_jComboEstadoMouseEntered
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -903,6 +935,20 @@ public class Previsao extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         abas.setSelectedIndex(1);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jComboEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboEstadoItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboEstadoItemStateChanged
+
+    private void jComboCidadeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboCidadeMouseEntered
+        // TODO add your handling code here:
+        //carregaCidades(jComboEstado.getSelectedItem().toString());
+        
+    }//GEN-LAST:event_jComboCidadeMouseEntered
+
+    private void jComboEstadoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jComboEstadoComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboEstadoComponentHidden
 
     /**
      * @param args the command line arguments
