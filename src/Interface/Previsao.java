@@ -27,32 +27,38 @@ public class Previsao extends javax.swing.JFrame {
     }
 
     private void carregaEstados() {
-        jComboEstado.removeAllItems();
+        //jComboEstado.removeAllItems();
         String mostra;
         Cidade city = new Cidade();
         city.lerEstadoCidade("estados.txt");
+        Vector vEstados = new Vector();
+        
 
         for (int a = 0; a < city.nomeCidades.size(); a++) {
             mostra = city.nomeCidades.get(a);
-            jComboEstado.addItem(mostra);
+            //jComboEstado.addItem(mostra);
+            vEstados.add(mostra);
         }
 
-        jComboEstado.setSelectedIndex(-1); //Deixa o comboBox em branco
+        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(vEstados)); 
+        //jComboEstado.setSelectedIndex(-1); //Deixa o comboBox em branco
     }
 
-    private void carregaCidades(String cidade) {
+    private Vector carregaCidades(String cidade) {
         String c = cidade + ".txt";
-        jComboCidade.removeAllItems();
+        Vector vCidades = new Vector();
+        //jComboCidade.removeAllItems();
         String mostra;
         Cidade city = new Cidade();
         city.lerEstadoCidade(c);
 
         for (int a = 0; a < city.nomeCidades.size(); a++) {
             mostra = city.nomeCidades.get(a);
-            jComboCidade.addItem(mostra);
+            vCidades.add(mostra);
+            //jComboCidade.addItem(mostra);
         }
-
         
+        return vCidades;     
     }
 
     /**
@@ -916,16 +922,18 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboEstadoActionPerformed
         // TODO add your handling code here:
+        Vector cidades = carregaCidades(jComboEstado.getSelectedItem().toString());
+        jComboCidade.setModel(new javax.swing.DefaultComboBoxModel<>(cidades));      
     }//GEN-LAST:event_jComboEstadoActionPerformed
 
     private void jComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseClicked
         // TODO add your handling code here:
-        carregaCidades(jComboEstado.getSelectedItem().toString());
+        //carregaCidades(jComboEstado.getSelectedItem().toString());
     }//GEN-LAST:event_jComboEstadoMouseClicked
 
     private void jComboEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseEntered
         //Gamibarra
-        jComboCidade.setSelectedIndex(-1);
+        //jComboCidade.setSelectedIndex(-1);
     }//GEN-LAST:event_jComboEstadoMouseEntered
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
