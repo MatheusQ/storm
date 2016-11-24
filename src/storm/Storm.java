@@ -36,25 +36,25 @@ public class Storm {
     public static void main(String[] args) throws JAXBException, SAXException, ParserConfigurationException, IOException {
         // TODO code application logic here
 
-        //Cidade cidade = new Cidade();
-        //Previsao prev = new Previsao();
+        /*        Cidade cidade = new Cidade();
+        Previsao prev = new Previsao();
         //cidade.lerArquivo();
         //cidade.LeArray();
-
-        //Xml xml = new Xml();
-        //xml.BaixaArquivo();
-        //Document doc;
-        //doc = xml.Carrega();
-        //cidade = xml.getXmlCidade(doc);
-
-        //xml.XmlPrevisao(doc,cidade);
-
-        //    cidade.arquivo("cidades");
-        //cidade.LeArray();
-        //System.out.println(cidade.getNome());
-        //System.out.println(cidade.getUf());
-        //System.out.println(cidade.getAtualizacao());
-        //System.out.println("\n\n");
+        
+        Xml xml = new Xml();
+        xml.BaixaArquivo("851");
+        Document doc;
+        doc = xml.Carrega();
+        cidade = xml.getXmlCidade(doc);
+        
+        xml.XmlPrevisao(doc,cidade);
+        
+        //cidade.arquivo("cidades");
+        cidade.LeArray();
+        System.out.println(cidade.getNome());
+        System.out.println(cidade.getUf());
+        System.out.println(cidade.getAtualizacao());
+        System.out.println("\n\n");*/
 
         /*
         System.out.println(prev.getAgitacao());
@@ -72,10 +72,10 @@ public class Storm {
         System.out.println(prev.getVento());
         System.out.println(prev.getVentoDir());
         System.out.println("\n");
-    }
-*/
-        Login login = new Login();  
-           login.setVisible(true); 
+    }*/
+
+        //Login login = new Login();  
+          // login.setVisible(true); 
        // Previsao previsao = new Previsao();
        // previsao.setVisible(true);
        

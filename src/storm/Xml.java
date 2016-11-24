@@ -29,9 +29,9 @@ import org.xml.sax.SAXException;
 public class Xml {
 
 //################### NOVAS FUNÇÕES ##################                    
-    public void BaixaArquivo() throws MalformedURLException, IOException {
-        URL url = new URL("http://servicos.cptec.inpe.br/XML/cidade/241/todos/tempos/ondas.xml");
-        //URL url = new URL("http://google.com.br");
+    public void BaixaArquivo(String cod) throws MalformedURLException, IOException {
+        URL url = new URL("http://servicos.cptec.inpe.br/XML/cidade/"+cod+"/todos/tempos/ondas.xml");
+        
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 
         while (reader.ready()) {
@@ -101,14 +101,14 @@ public class Xml {
             if (nNodec.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElementc = (Element) nNodec;
 
-                System.out.println("nome: " + XmlGetNome(eElementc));
+                //System.out.println("nome: " + XmlGetNome(eElementc));
                 city.setNome(XmlGetNome(eElementc));
-                System.out.println("UF: " + XmlGetUf(eElementc));
+                //System.out.println("UF: " + XmlGetUf(eElementc));
                 city.setUf(XmlGetUf(eElementc));
-                System.out.println("Atualizacão: " + XmlGetAtualizacao(eElementc));
+                //System.out.println("Atualizacão: " + XmlGetAtualizacao(eElementc));
                 city.setAtualizacao(XmlGetAtualizacao(eElementc));
 
-                System.out.println("\n");
+                //System.out.println("\n");
 
             }
 

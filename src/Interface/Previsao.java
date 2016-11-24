@@ -5,11 +5,18 @@
  */
 package Interface;
 
+import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import storm.Cidade;
+import storm.Xml;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -32,7 +39,6 @@ public class Previsao extends javax.swing.JFrame {
         Cidade city = new Cidade();
         city.lerEstadoCidade("estados.txt");
         Vector vEstados = new Vector();
-        
 
         for (int a = 0; a < city.nomeCidades.size(); a++) {
             mostra = city.nomeCidades.get(a);
@@ -40,7 +46,7 @@ public class Previsao extends javax.swing.JFrame {
             vEstados.add(mostra);
         }
 
-        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(vEstados)); 
+        jComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(vEstados));
         //jComboEstado.setSelectedIndex(-1); //Deixa o comboBox em branco
     }
 
@@ -55,10 +61,12 @@ public class Previsao extends javax.swing.JFrame {
         for (int a = 0; a < city.nomeCidades.size(); a++) {
             mostra = city.nomeCidades.get(a);
             vCidades.add(mostra);
+
+            a++;
             //jComboCidade.addItem(mostra);
         }
-        
-        return vCidades;     
+
+        return vCidades;
     }
 
     /**
@@ -831,17 +839,70 @@ public class Previsao extends javax.swing.JFrame {
 
     private void jComboCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCidadeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboCidadeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        //DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
-        Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
+        jComboCidade.getSelectedIndex();
+
+        String cselect = jComboEstado.getSelectedItem().toString();
+        String mostra;
+        String c = cselect + ".txt";
+
+        int index = jComboCidade.getSelectedIndex();
+        index = (index * 2) + 1;
+        Cidade city = new Cidade();
+        city.lerEstadoCidade(c);
+
+        mostra = city.nomeCidades.get(index);
+
+        Xml xml = new Xml();
+        try {
+            xml.BaixaArquivo(mostra);
+
+            //jLabel3.setText(mostra);
+        } catch (IOException ex) {
+            Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Cidade cidade = new Cidade();
+        Previsao prev = new Previsao();
+        //cidade.lerArquivo();
+        //cidade.LeArray();
+
+        //Xml xml = new Xml();
+        //xml.BaixaArquivo("851");
+        Document doc = null;
+        try {
+            doc = xml.Carrega();
+        } catch (SAXException ex) {
+            Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cidade = xml.getXmlCidade(doc);
+
+        xml.XmlPrevisao(doc, cidade);
+
+        //cidade.arquivo("cidades");
+        cidade.LeArray();
+        jLabelCidade.setText(cidade.getNome());
+        jLabelCidade1.setText(cidade.getNome());
+        jLabelEstado.setText(cidade.getUf());
+        jLabelEstado1.setText(cidade.getUf());
+        //System.out.println(cidade.getAtualizacao());
+        //System.out.println("\n\n");
+
+//DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
+        //Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
         storm.Previsao p = new storm.Previsao("9h", "10ag", "5m", "Leste", "Forte", "Sul");
         DefaultTableModel tabela1 = (DefaultTableModel) jTablePrevisao1.getModel();
         tabela1.setNumRows(0);
 
+        /*
         //String[] linha1 = {"18/10","Ondas 10m"};
         //String[] linha2 = {"18/10","agitacao 2"};
         //String[] linha3 = {"20/10","Ondas 30m"};
@@ -849,38 +910,38 @@ public class Previsao extends javax.swing.JFrame {
         //colunas.add("Previsão");
         //tabela1.addColumn(colunas);
         jLabelHora1.setText(p.getDia());
-
+        
         Vector<Vector> linhas = new Vector<>();
-
+        
         Vector<String> linha1 = new Vector<>();
         linha1.add("Agitação");
         linha1.add(p.getAgitacao());
         linhas.add(linha1);
-
+        
         Vector<String> linha2 = new Vector<>();
         linha2.add("Altura");
         linha2.add(p.getAltura());
         linhas.add(linha2);
-
+        
         Vector<String> linha3 = new Vector<>();
         linha3.add("Direção");
         linha3.add(p.getDirecao());
         linhas.add(linha3);
-
+        
         Vector<String> linha4 = new Vector<>();
         linha4.add("Vento");
         linha4.add(p.getVento());
         linhas.add(linha4);
-
+        
         Vector<String> linha5 = new Vector<>();
         linha5.add("Direção vento");
         linha5.add(p.getVentoDir());
         linhas.add(linha5);
-
+        
         for (int i = 0; i < 4; i++) {
-            tabela1.addRow(linhas.get(i));
+        tabela1.addRow(linhas.get(i));
         }
-
+        
         //List lista = new ArrayList();
         //String[] listaStr;
         //lista.add(jComboEstado.getSelectedItem() + "");
@@ -892,7 +953,7 @@ public class Previsao extends javax.swing.JFrame {
         //tabela1.addColumn(coluna);
         //tabela1.addRow(linha1);
         //tabela1.addRow(linha2);
-        //tabela1.addRow(linha3);
+        //tabela1.addRow(linha3);*/
         abas.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -923,7 +984,7 @@ public class Previsao extends javax.swing.JFrame {
     private void jComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboEstadoActionPerformed
         // TODO add your handling code here:
         Vector cidades = carregaCidades(jComboEstado.getSelectedItem().toString());
-        jComboCidade.setModel(new javax.swing.DefaultComboBoxModel<>(cidades));      
+        jComboCidade.setModel(new javax.swing.DefaultComboBoxModel<>(cidades));
     }//GEN-LAST:event_jComboEstadoActionPerformed
 
     private void jComboEstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseClicked
@@ -951,7 +1012,7 @@ public class Previsao extends javax.swing.JFrame {
     private void jComboCidadeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboCidadeMouseEntered
         // TODO add your handling code here:
         //carregaCidades(jComboEstado.getSelectedItem().toString());
-        
+
     }//GEN-LAST:event_jComboCidadeMouseEntered
 
     private void jComboEstadoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jComboEstadoComponentHidden
