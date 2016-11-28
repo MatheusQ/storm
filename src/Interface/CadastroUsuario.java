@@ -88,15 +88,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         loginTF = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        senhaTF = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         nacTF = new javax.swing.JTextField();
         cadastraBtt = new javax.swing.JButton();
         dataNascTF = new javax.swing.JTextField();
+        senhaTF = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de Usuário", 0, 0, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel1.setText("Nome:");
@@ -144,6 +144,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        senhaTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaTFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -156,9 +162,9 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loginTF)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senhaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(senhaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -247,20 +253,41 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void cadastraBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBttActionPerformed
         // TODO add your handling code here:
+        boolean valida=true;
         
+        if(nomeTF.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane,"digite o nome");
+            valida=false;
+        }
         
+          if(loginTF.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane,"Login");
+            valida=false;
+        }
+          
+          
+            if(senhaTF.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane,"senha");
+            valida=false;
+        }
+        if(valida){
         Usuario u = new Usuario(nomeTF.getText(), sobrenomeTF.getText(), dataNascTF.getText(),nacTF.getText(), emailTF.getText(), loginTF.getText(), senhaTF.getText());
         limpar();
         usuarios.add(u);
         
          try {
              u.Save();
+             JOptionPane.showMessageDialog(rootPane,"Usuario inserido com sucesso");
              //System.out.println("\n* Novo  cadastrado\n* "+ funcionarios);
          } catch (IOException ex) {
              Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
          }
-
+        }
     }//GEN-LAST:event_cadastraBttActionPerformed
+
+    private void senhaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,7 +339,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField loginTF;
     private javax.swing.JTextField nacTF;
     private javax.swing.JTextField nomeTF;
-    private javax.swing.JTextField senhaTF;
+    private javax.swing.JPasswordField senhaTF;
     private javax.swing.JTextField sobrenomeTF;
     // End of variables declaration//GEN-END:variables
 }

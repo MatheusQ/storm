@@ -5,15 +5,51 @@
  */
 package Interface;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import storm.Usuario;
+
 /**
  *
  * @author hack
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+        public ArrayList<Usuario> usuarios = new ArrayList<>();//array list de  usuarios
+    
+        public void CarregarUsuario() throws IllegalArgumentException, IOException {
+        Usuario usuario = new Usuario();
+
+        for (Usuario c : usuario.LoadAll()) {
+            this.usuarios.add(c);
+        }
+    }
+
+    
+      public Boolean ConsultarUsuario(String user , String senha) {
+
+        for (Usuario usuario : usuarios) {
+            if (usuario.getLogin().compareToIgnoreCase(user) == 0 && usuario.getSenha().compareToIgnoreCase(senha) == 0 ) {
+                 return true;
+       }
+
+        JOptionPane.showMessageDialog(rootPane, ("Usuario ou senha invalidos"));
+        
+        return null;
+    }              
+                return false;
+            }
+    
+    
+    
+    
+    
+    
+    
+    
     public Login() {
         initComponents();
     }
@@ -33,11 +69,10 @@ public class Login extends javax.swing.JFrame {
         senhalbl = new javax.swing.JLabel();
         logarBtt = new javax.swing.JButton();
         usuarioTF = new javax.swing.JTextField();
-        senhaTF = new javax.swing.JTextField();
+        senhaTF = new javax.swing.JPasswordField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         novoUserMI = new javax.swing.JMenuItem();
-        alterarSenhaMI = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -62,12 +97,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        senhaTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhaTFActionPerformed(evt);
-            }
-        });
-
         jMenu1.setText("Usuário");
 
         novoUserMI.setText("Novo Usuário");
@@ -77,14 +106,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jMenu1.add(novoUserMI);
-
-        alterarSenhaMI.setText("Alterar senha");
-        alterarSenhaMI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarSenhaMIActionPerformed(evt);
-            }
-        });
-        jMenu1.add(alterarSenhaMI);
 
         jMenuBar1.add(jMenu1);
 
@@ -102,9 +123,9 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(senhalbl)
                             .addComponent(usuarioLbl))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senhaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usuarioTF, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(senhaTF)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(logarBtt)))
@@ -130,20 +151,29 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logarBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBttActionPerformed
-        // TODO add your handling code here:
-        
-        Previsao previsao = new Previsao();
+       
+            try {
+                CarregarUsuario();
+               if( ConsultarUsuario(usuarioTF.getText(), senhaTF.getText())){
+                   
+                          Previsao previsao = new Previsao();
 
-        previsao.setVisible(true);
+                          previsao.setVisible(true);
+               }
+                
+            } catch (IllegalArgumentException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+ 
     }//GEN-LAST:event_logarBttActionPerformed
 
     private void usuarioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioTFActionPerformed
-
-    private void senhaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaTFActionPerformed
 
     private void novoUserMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUserMIActionPerformed
         // TODO add your handling code here:
@@ -151,13 +181,6 @@ public class Login extends javax.swing.JFrame {
 
         CadastroUsuario.setVisible(true);
     }//GEN-LAST:event_novoUserMIActionPerformed
-
-    private void alterarSenhaMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarSenhaMIActionPerformed
-        // TODO add your handling code here:
-        AlterarSenha alterarSenha = new AlterarSenha();
-
-        alterarSenha.setVisible(true);
-    }//GEN-LAST:event_alterarSenhaMIActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,19 +213,20 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem alterarSenhaMI;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JButton logarBtt;
     private javax.swing.JMenuItem novoUserMI;
-    private javax.swing.JTextField senhaTF;
+    private javax.swing.JPasswordField senhaTF;
     private javax.swing.JLabel senhalbl;
     private javax.swing.JLabel usuarioLbl;
     private javax.swing.JTextField usuarioTF;
