@@ -21,10 +21,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     /**
      * Creates new form CadastroUsuario
      */
-    
-     public ArrayList<Usuario> usuarios = new ArrayList<>();//array list de  usuarios
-     
-     
+    public ArrayList<Usuario> usuarios = new ArrayList<>();//array list de  usuarios
 
     public void CarregarFuncinario() throws IllegalArgumentException, IOException {
         Usuario usuario = new Usuario();
@@ -34,38 +31,32 @@ public class CadastroUsuario extends javax.swing.JFrame {
         }
     }
 
-    
-      public Usuario ConsultarUsuario(String nome) {
+    public Usuario ConsultarUsuario(String nome) {
 
         for (Usuario usuario : usuarios) {
             if (usuario.getNome().compareToIgnoreCase(nome) == 0) {
-                 return usuario;
-       }
-
-        JOptionPane.showMessageDialog(rootPane, ("Não foi Possivel encontrar o Usuario com o Nome: " + nome));
-        return null;
-    }              
-                return null;
+                return usuario;
             }
-    
-    
-    
-    
+
+            JOptionPane.showMessageDialog(rootPane, ("Não foi Possivel encontrar o Usuario com o Nome: " + nome));
+            return null;
+        }
+        return null;
+    }
+
     public CadastroUsuario() {
         initComponents();
     }
-    
+
     public void limpar() {
-       nomeTF.setText("");
-       sobrenomeTF.setText("");
-       nacTF.setText("");
-       dataNascTF.setText("");
-       emailTF.setText("");
-       loginTF.setText("");
-       senhaTF.setText("");
-       
-       
-      
+        nomeTF.setText("");
+        sobrenomeTF.setText("");
+        nacTF.setText("");
+        dataNascTF.setText("");
+        emailTF.setText("");
+        loginTF.setText("");
+        senhaTF.setText("");
+
     }
 
     /**
@@ -253,35 +244,34 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void cadastraBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastraBttActionPerformed
         // TODO add your handling code here:
-        boolean valida=true;
-        
-        if(nomeTF.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"digite o nome");
-            valida=false;
+        boolean valida = true;
+
+        if (nomeTF.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "digite o nome");
+            valida = false;
         }
-        
-          if(loginTF.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"Login");
-            valida=false;
+
+        if (loginTF.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Login");
+            valida = false;
         }
-          
-          
-            if(senhaTF.getText().isEmpty()){
-            JOptionPane.showMessageDialog(rootPane,"senha");
-            valida=false;
+
+        if (senhaTF.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "senha");
+            valida = false;
         }
-        if(valida){
-        Usuario u = new Usuario(nomeTF.getText(), sobrenomeTF.getText(), dataNascTF.getText(),nacTF.getText(), emailTF.getText(), loginTF.getText(), senhaTF.getText());
-        limpar();
-        usuarios.add(u);
-        
-         try {
-             u.Save();
-             JOptionPane.showMessageDialog(rootPane,"Usuario inserido com sucesso");
-             //System.out.println("\n* Novo  cadastrado\n* "+ funcionarios);
-         } catch (IOException ex) {
-             Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        if (valida) {
+            Usuario u = new Usuario(nomeTF.getText(), sobrenomeTF.getText(), dataNascTF.getText(), nacTF.getText(), emailTF.getText(), loginTF.getText(), senhaTF.getText());
+            limpar();
+            usuarios.add(u);
+
+            try {
+                u.Save();
+                JOptionPane.showMessageDialog(rootPane, "Usuario inserido com sucesso");
+                //System.out.println("\n* Novo  cadastrado\n* "+ funcionarios);
+            } catch (IOException ex) {
+                Logger.getLogger(CadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_cadastraBttActionPerformed
 

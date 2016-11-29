@@ -18,9 +18,9 @@ import storm.Usuario;
  */
 public class Login extends javax.swing.JFrame {
 
-        public ArrayList<Usuario> usuarios = new ArrayList<>();//array list de  usuarios
-    
-        public void CarregarUsuario() throws IllegalArgumentException, IOException {
+    public ArrayList<Usuario> usuarios = new ArrayList<>();//array list de  usuarios
+
+    public void CarregarUsuario() throws IllegalArgumentException, IOException {
         Usuario usuario = new Usuario();
 
         for (Usuario c : usuario.LoadAll()) {
@@ -28,28 +28,19 @@ public class Login extends javax.swing.JFrame {
         }
     }
 
-    
-      public Boolean ConsultarUsuario(String user , String senha) {
+    public Boolean ConsultarUsuario(String user, String senha) {
 
         for (Usuario usuario : usuarios) {
-            if (usuario.getLogin().compareToIgnoreCase(user) == 0 && usuario.getSenha().compareToIgnoreCase(senha) == 0 ) {
-                 return true;
-       }
-
-        
-    }              
-            JOptionPane.showMessageDialog(rootPane, ("Usuario ou senha invalidos"));
-        
-        return false; 
+            if (usuario.getLogin().compareToIgnoreCase(user) == 0 && usuario.getSenha().compareToIgnoreCase(senha) == 0) {
+                return true;
             }
-    
-    
-    
-    
-    
-    
-    
-    
+
+        }
+        JOptionPane.showMessageDialog(rootPane, ("Usuario ou senha invalidos"));
+
+        return false;
+    }
+
     public Login() {
         initComponents();
     }
@@ -153,26 +144,24 @@ public class Login extends javax.swing.JFrame {
 
     private void logarBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBttActionPerformed
 
-        
-            try {
-                CarregarUsuario();
-               if( ConsultarUsuario(usuarioTF.getText(), senhaTF.getText())){
-                   
-                          Previsao previsao = new Previsao();
-                           previsao.setResizable(false);
+        try {
+            CarregarUsuario();
+            if (ConsultarUsuario(usuarioTF.getText(), senhaTF.getText())) {
 
-                          previsao.setVisible(true);
-                          
-               }
-                
-            } catch (IllegalArgumentException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                Previsao previsao = new Previsao();
+                previsao.setResizable(false);
+
+                previsao.setVisible(true);
+
             }
-        
-        
- 
+
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_logarBttActionPerformed
 
     private void usuarioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTFActionPerformed
@@ -182,7 +171,7 @@ public class Login extends javax.swing.JFrame {
     private void novoUserMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUserMIActionPerformed
         // TODO add your handling code here:
         CadastroUsuario CadastroUsuario = new CadastroUsuario();
-         CadastroUsuario.setResizable(false);
+        CadastroUsuario.setResizable(false);
 
         CadastroUsuario.setVisible(true);
     }//GEN-LAST:event_novoUserMIActionPerformed
@@ -218,8 +207,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
-                
-                
+
             }
         });
     }

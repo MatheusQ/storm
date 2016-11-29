@@ -36,10 +36,10 @@ public class Previsao extends javax.swing.JFrame {
         carregaEstados();
 
     }
-    
-    private void deleta(){
-        String nome = "out.xml";  
-        File f = new File(nome);  
+
+    private void deleta() {
+        String nome = "out.xml";
+        File f = new File(nome);
         f.delete();
     }
 
@@ -862,7 +862,6 @@ public class Previsao extends javax.swing.JFrame {
         String mostra;
         String c = cselect + ".txt";
 
-
         int index = jComboCidade.getSelectedIndex();
         deleta();
         index = (index * 2) + 1;
@@ -873,9 +872,9 @@ public class Previsao extends javax.swing.JFrame {
 
         Xml xml = new Xml();
         Previsao prev = new Previsao();
-         Document doc = null;
+        Document doc = null;
         try {
-            doc=   xml.BaixaArquivo(mostra);
+            doc = xml.BaixaArquivo(mostra);
         } catch (IOException ex) {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
@@ -884,17 +883,10 @@ public class Previsao extends javax.swing.JFrame {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-
-        
-
-       
- 
         cidade = xml.getXmlCidade(doc);
 
         xml.XmlPrevisao(doc, cidade);
 
-       
         cidade.LeArray();
         jLabelCidade.setText(jComboCidade.getSelectedItem().toString());
         jLabelCidade1.setText(jComboCidade.getSelectedItem().toString());
@@ -909,7 +901,6 @@ public class Previsao extends javax.swing.JFrame {
             labelHora[i].setText(diaHora[0]);
         }
 
-
         abas.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -922,7 +913,7 @@ public class Previsao extends javax.swing.JFrame {
             temp.setNumRows(0);
             tabela.add(temp);
         }
-        int aux=0;
+        int aux = 0;
         for (int i = 0; i < 8; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -939,7 +930,7 @@ public class Previsao extends javax.swing.JFrame {
 
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 0; i < 8; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -967,7 +958,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.add(temp);
         }
 
-        int aux=0;
+        int aux = 0;
         for (int i = 8; i < 16; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -981,10 +972,10 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-  
+
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 8; i < 16; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -1012,7 +1003,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.add(temp);
         }
 
-        int aux=0;
+        int aux = 0;
         for (int i = 16; i < 24; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -1026,10 +1017,10 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-  
+
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 16; i < 24; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -1057,7 +1048,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.add(temp);
         }
 
-         int aux=0;
+        int aux = 0;
         for (int i = 32; i < 40; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -1074,7 +1065,7 @@ public class Previsao extends javax.swing.JFrame {
 
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 32; i < 40; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -1102,7 +1093,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.add(temp);
         }
 
-        int aux=0;
+        int aux = 0;
         for (int i = 24; i < 32; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -1119,7 +1110,7 @@ public class Previsao extends javax.swing.JFrame {
 
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 24; i < 32; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -1147,9 +1138,9 @@ public class Previsao extends javax.swing.JFrame {
             tabela.add(temp);
         }
 
-        int aux=0;
-        int cont=0;
-        cont = 40 + ((cidade.prev.size())%8);
+        int aux = 0;
+        int cont = 0;
+        cont = 40 + ((cidade.prev.size()) % 8);
         for (int i = 40; i < cont; i++) {
             String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
             String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
@@ -1166,7 +1157,7 @@ public class Previsao extends javax.swing.JFrame {
 
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
-        int aux2=0;
+        int aux2 = 0;
         for (int i = 40; i < cont; i++) {
             String diaHora[] = new String[2];
             diaHora = cidade.prev.get(i).getDia().split(" ");
@@ -1196,7 +1187,7 @@ public class Previsao extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboEstadoMouseClicked
 
     private void jComboEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseEntered
-    
+
     }//GEN-LAST:event_jComboEstadoMouseEntered
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed

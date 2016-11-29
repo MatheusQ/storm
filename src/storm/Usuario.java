@@ -11,50 +11,45 @@ import Arquivo.Arquivo;
 import java.util.Date;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.PieChart.Data;
+
 /**
  *
  * @author matheus
  */
 
-public class Usuario extends Arquivo{
+public class Usuario extends Arquivo {
     //ATRIBUTOS
-    
+
     //Obrigatórios.
     private String nome;
-    private String sobrenome; 
+    private String sobrenome;
     private String login;
     private String senha;
     //Fim Obrigatórios.
-    
+
     //Opcionais (podemos ou não inserir/usar essas informações).
     private String email;
-    private String nascimento;            
+    private String nascimento;
     private String nacionalidade;           //Profissional ou estudante.
- 
-    
-    //MÉTODOS DE ALTERAÇÃO
 
-    public Usuario(String nome , String sobrenome ,String nasc ,String nacional , String email ,String login, String senha  ) {
-    
-    this.nome=nome;
-    this.sobrenome=sobrenome;
-    this.nascimento=nasc;
-    this.nacionalidade=nacional;
-    this.email=email;
-    this.login=login;
-    this.senha=senha;
-    
+    //MÉTODOS DE ALTERAÇÃO
+    public Usuario(String nome, String sobrenome, String nasc, String nacional, String email, String login, String senha) {
+
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.nascimento = nasc;
+        this.nacionalidade = nacional;
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+
     }
-    
-    public  Usuario(){
+
+    public Usuario() {
     }
-    
-    
-    
- 
-    
-       //Implementando a interface de arquivo 
-      @Override
+
+    //Implementando a interface de arquivo 
+    @Override
     public String toString() {
         String texto;
 

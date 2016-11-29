@@ -11,22 +11,20 @@ import java.io.Serializable;
  *
  * @author felipe batoni
  */
-public class Previsao  {
+public class Previsao {
+
     private String dia;
     private String agitacao;
     private String altura;
     private String direcao;
     private String vento;
     private String ventoDir;
-    
-    
-    
-    
-    public  Previsao(){
-    
+
+    public Previsao() {
+
     }
-    
-    public Previsao (String dia, String agitacao, String altura, String direcao, String vento, String ventoDir) {
+
+    public Previsao(String dia, String agitacao, String altura, String direcao, String vento, String ventoDir) {
         this.dia = dia;
         this.agitacao = agitacao;
         this.altura = altura;
@@ -34,7 +32,7 @@ public class Previsao  {
         this.vento = vento;
         this.ventoDir = ventoDir;
     }
-    
+
     public String getDia() {
         return dia;
     }

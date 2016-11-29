@@ -25,7 +25,7 @@ import org.xml.sax.SAXException;
  *
  * @author hack
  * @author Felipe Batoni
- * 
+ *
  */
 public class Storm {
 
@@ -35,9 +35,9 @@ public class Storm {
      */
     public static void main(String[] args) throws JAXBException, SAXException, ParserConfigurationException, IOException {
 
-            Login login = new Login();  
-           login.setVisible(true); 
-      
+        Login login = new Login();
+        login.setVisible(true);
+
     }
 
 }
