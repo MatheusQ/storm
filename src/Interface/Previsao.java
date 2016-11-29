@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -27,6 +28,8 @@ public class Previsao extends javax.swing.JFrame {
     /**
      * Creates new form Previsoes
      */
+    Cidade cidade = new Cidade();
+
     public Previsao() {
         initComponents();
         carregaEstados();
@@ -94,21 +97,21 @@ public class Previsao extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelData1 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelData2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelData3 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        jLabelData5 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelData4 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabelData6 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -153,7 +156,7 @@ public class Previsao extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         abas.setToolTipText("");
 
@@ -227,7 +230,7 @@ public class Previsao extends javax.swing.JFrame {
                         .addComponent(jComboEstado, 0, 190, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 474, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -288,14 +291,14 @@ public class Previsao extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações"));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Ver");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Data 1");
+        jLabelData1.setText("Data 1");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -303,9 +306,10 @@ public class Previsao extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabelData1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3))
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,18 +317,18 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelData1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton6.setText("jButton3");
+        jButton6.setText("Ver");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Data 2");
+        jLabelData2.setText("Data 2");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -332,9 +336,9 @@ public class Previsao extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabelData2, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6))
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,18 +346,18 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelData2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton7.setText("jButton3");
+        jButton7.setText("Ver");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Data 3");
+        jLabelData3.setText("Data 3");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -361,9 +365,9 @@ public class Previsao extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabelData3, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7))
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,18 +375,18 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelData3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton8.setText("jButton3");
+        jButton8.setText("Ver");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Data 5");
+        jLabelData5.setText("Data 5");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -390,9 +394,9 @@ public class Previsao extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabelData5, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8))
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,18 +404,18 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelData5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jButton9.setText("jButton3");
+        jButton9.setText("Ver");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
-        jLabel9.setText("Data 4");
+        jLabelData4.setText("Data 4");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -419,9 +423,9 @@ public class Previsao extends javax.swing.JFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                .addComponent(jLabelData4, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton9))
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,13 +433,13 @@ public class Previsao extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelData4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jLabel10.setText("Data 6");
+        jLabelData6.setText("Data 6");
 
-        jButton10.setText("jButton3");
+        jButton10.setText("Ver");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -448,17 +452,16 @@ public class Previsao extends javax.swing.JFrame {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jButton10)
-                .addContainerGap())
+                .addComponent(jLabelData6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelData6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10))
                 .addContainerGap())
         );
@@ -475,7 +478,7 @@ public class Previsao extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,7 +490,7 @@ public class Previsao extends javax.swing.JFrame {
                     .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(381, 381, 381)
+                .addGap(382, 382, 382)
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -505,13 +508,16 @@ public class Previsao extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
                 .addComponent(jButton12)
-                .addGap(166, 166, 166))
+                .addGap(156, 156, 156))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -821,7 +827,7 @@ public class Previsao extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(abas, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(abas, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
         );
 
         abas.getAccessibleContext().setAccessibleName("Escolha a cidade");
@@ -843,8 +849,7 @@ public class Previsao extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboCidadeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        jComboCidade.getSelectedIndex();
+//jComboCidade.getSelectedIndex();
 
         String cselect = jComboEstado.getSelectedItem().toString();
         String mostra;
@@ -866,7 +871,6 @@ public class Previsao extends javax.swing.JFrame {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        Cidade cidade = new Cidade();
         Previsao prev = new Previsao();
         //cidade.lerArquivo();
         //cidade.LeArray();
@@ -889,18 +893,22 @@ public class Previsao extends javax.swing.JFrame {
 
         //cidade.arquivo("cidades");
         cidade.LeArray();
-        jLabelCidade.setText(cidade.getNome());
-        jLabelCidade1.setText(cidade.getNome());
-        jLabelEstado.setText(cidade.getUf());
-        jLabelEstado1.setText(cidade.getUf());
+        jLabelCidade.setText(jComboCidade.getSelectedItem().toString());
+        jLabelCidade1.setText(jComboCidade.getSelectedItem().toString());
+        jLabelEstado.setText(jComboEstado.getSelectedItem().toString());
+        jLabelEstado1.setText(jComboEstado.getSelectedItem().toString());
         //System.out.println(cidade.getAtualizacao());
         //System.out.println("\n\n");
 
 //DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
         //Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
-        storm.Previsao p = new storm.Previsao("9h", "10ag", "5m", "Leste", "Forte", "Sul");
-        DefaultTableModel tabela1 = (DefaultTableModel) jTablePrevisao1.getModel();
-        tabela1.setNumRows(0);
+        javax.swing.JLabel labelHora[] = {jLabelData1, jLabelData2, jLabelData3, jLabelData4, jLabelData5, jLabelData6};
+
+        for (int i = 0; i < 6; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i * 8).getDia().split(" ");
+            labelHora[i].setText(diaHora[0]);
+        }
 
         /*
         //String[] linha1 = {"18/10","Ondas 10m"};
@@ -958,27 +966,304 @@ public class Previsao extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+        int aux=0;
+        for (int i = 0; i < 8; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 0; i < 8; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+
+        int aux=0;
+        for (int i = 8; i < 16; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 8; i < 16; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+
+        int aux=0;
+        for (int i = 16; i < 24; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 16; i < 24; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+
+         int aux=0;
+        for (int i = 32; i < 40; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 32; i < 40; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+
+        int aux=0;
+        for (int i = 24; i < 32; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 24; i < 32; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+
+        javax.swing.JTable arrayTabelas[] = {jTablePrevisao1, jTablePrevisao2, jTablePrevisao3, jTablePrevisao4, jTablePrevisao5, jTablePrevisao6, jTablePrevisao7, jTablePrevisao8};
+        Vector<DefaultTableModel> tabela = new Vector<>();
+        for (int i = 0; i < 8; i++) {
+            DefaultTableModel temp = (DefaultTableModel) arrayTabelas[i].getModel();
+            temp.setNumRows(0);
+            tabela.add(temp);
+        }
+
+        int aux=0;
+        int cont=0;
+        cont = 40 + ((cidade.prev.size())%8);
+        for (int i = 40; i < cont; i++) {
+            String[] linha1 = new String[]{"Agitação", cidade.prev.get(i).getAgitacao()};
+            String[] linha2 = new String[]{"Altura", cidade.prev.get(i).getAltura()};
+            String[] linha3 = new String[]{"Direção", cidade.prev.get(i).getDirecao()};
+            String[] linha4 = new String[]{"Vento", cidade.prev.get(i).getVento()};
+            String[] linha5 = new String[]{"Vento Dir", cidade.prev.get(i).getVentoDir()};
+            tabela.get(aux).addRow(linha1);
+            tabela.get(aux).addRow(linha2);
+            tabela.get(aux).addRow(linha3);
+            tabela.get(aux).addRow(linha4);
+            tabela.get(aux).addRow(linha5);
+            aux++;
+        }
+        //tabela.get(0).addRow(linha1);
+
+        /*        for (int i = 0; i < 8; i++) {
+        
+        tabela.get(i).addRow(tabela);
+        }*/
+        javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
+
+        int aux2=0;
+        for (int i = 40; i < cont; i++) {
+            String diaHora[] = new String[2];
+            diaHora = cidade.prev.get(i).getDia().split(" ");
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            labelHora[aux2].setText(diaHora[1]);
+            aux2++;
+        }
+
+        abas.setSelectedIndex(2);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboEstadoActionPerformed
@@ -1070,15 +1355,15 @@ public class Previsao extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboCidade;
     private javax.swing.JComboBox<String> jComboEstado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCidade;
     private javax.swing.JLabel jLabelCidade1;
+    private javax.swing.JLabel jLabelData1;
+    private javax.swing.JLabel jLabelData2;
+    private javax.swing.JLabel jLabelData3;
+    private javax.swing.JLabel jLabelData4;
+    private javax.swing.JLabel jLabelData5;
+    private javax.swing.JLabel jLabelData6;
     private javax.swing.JLabel jLabelEstado;
     private javax.swing.JLabel jLabelEstado1;
     private javax.swing.JLabel jLabelHora1;
