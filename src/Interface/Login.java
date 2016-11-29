@@ -36,11 +36,11 @@ public class Login extends javax.swing.JFrame {
                  return true;
        }
 
-        JOptionPane.showMessageDialog(rootPane, ("Usuario ou senha invalidos"));
         
-        return null;
     }              
-                return false;
+            JOptionPane.showMessageDialog(rootPane, ("Usuario ou senha invalidos"));
+        
+        return false; 
             }
     
     

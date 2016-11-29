@@ -29,7 +29,7 @@ import org.xml.sax.SAXException;
 public class Xml {
 
 //################### NOVAS FUNÇÕES ##################                    
-    public void BaixaArquivo(String cod) throws MalformedURLException, IOException {
+    public Document BaixaArquivo(String cod) throws MalformedURLException, IOException, SAXException, ParserConfigurationException {
         URL url = new URL("http://servicos.cptec.inpe.br/XML/cidade/"+cod+"/todos/tempos/ondas.xml");
         
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -38,6 +38,7 @@ public class Xml {
             String line = reader.readLine();
             EscreveXml(line);
         }
+        return Carrega();
     }
 
     public void EscreveXml(String line) {

@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import java.io.File;
 import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import storm.Cidade;
@@ -34,6 +35,12 @@ public class Previsao extends javax.swing.JFrame {
         initComponents();
         carregaEstados();
 
+    }
+    
+    private void deleta(){
+        String nome = "out.xml";  
+        File f = new File(nome);  
+        f.delete();
     }
 
     private void carregaEstados() {
@@ -855,7 +862,9 @@ public class Previsao extends javax.swing.JFrame {
         String mostra;
         String c = cselect + ".txt";
 
+
         int index = jComboCidade.getSelectedIndex();
+        deleta();
         index = (index * 2) + 1;
         Cidade city = new Cidade();
         city.lerEstadoCidade(c);
@@ -863,45 +872,35 @@ public class Previsao extends javax.swing.JFrame {
         mostra = city.nomeCidades.get(index);
 
         Xml xml = new Xml();
+        Previsao prev = new Previsao();
+         Document doc = null;
         try {
-            xml.BaixaArquivo(mostra);
-
-            //jLabel3.setText(mostra);
+            doc=   xml.BaixaArquivo(mostra);
         } catch (IOException ex) {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Previsao prev = new Previsao();
-        //cidade.lerArquivo();
-        //cidade.LeArray();
-
-        //Xml xml = new Xml();
-        //xml.BaixaArquivo("851");
-        Document doc = null;
-        try {
-            doc = xml.Carrega();
         } catch (SAXException ex) {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Previsao.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+
+        
+
+       
+ 
         cidade = xml.getXmlCidade(doc);
 
         xml.XmlPrevisao(doc, cidade);
 
-        //cidade.arquivo("cidades");
+       
         cidade.LeArray();
         jLabelCidade.setText(jComboCidade.getSelectedItem().toString());
         jLabelCidade1.setText(jComboCidade.getSelectedItem().toString());
         jLabelEstado.setText(jComboEstado.getSelectedItem().toString());
         jLabelEstado1.setText(jComboEstado.getSelectedItem().toString());
-        //System.out.println(cidade.getAtualizacao());
-        //System.out.println("\n\n");
 
-//DefaultTableModel tabela1 = (DefaultTableModel) jtbprev1.getModel();
-        //Cidade c = new Cidade("Sumpaulo", "SP", "09/11/2016");
         javax.swing.JLabel labelHora[] = {jLabelData1, jLabelData2, jLabelData3, jLabelData4, jLabelData5, jLabelData6};
 
         for (int i = 0; i < 6; i++) {
@@ -910,58 +909,7 @@ public class Previsao extends javax.swing.JFrame {
             labelHora[i].setText(diaHora[0]);
         }
 
-        /*
-        //String[] linha1 = {"18/10","Ondas 10m"};
-        //String[] linha2 = {"18/10","agitacao 2"};
-        //String[] linha3 = {"20/10","Ondas 30m"};
-        //colunas.add(p.getDia());
-        //colunas.add("Previsão");
-        //tabela1.addColumn(colunas);
-        jLabelHora1.setText(p.getDia());
-        
-        Vector<Vector> linhas = new Vector<>();
-        
-        Vector<String> linha1 = new Vector<>();
-        linha1.add("Agitação");
-        linha1.add(p.getAgitacao());
-        linhas.add(linha1);
-        
-        Vector<String> linha2 = new Vector<>();
-        linha2.add("Altura");
-        linha2.add(p.getAltura());
-        linhas.add(linha2);
-        
-        Vector<String> linha3 = new Vector<>();
-        linha3.add("Direção");
-        linha3.add(p.getDirecao());
-        linhas.add(linha3);
-        
-        Vector<String> linha4 = new Vector<>();
-        linha4.add("Vento");
-        linha4.add(p.getVento());
-        linhas.add(linha4);
-        
-        Vector<String> linha5 = new Vector<>();
-        linha5.add("Direção vento");
-        linha5.add(p.getVentoDir());
-        linhas.add(linha5);
-        
-        for (int i = 0; i < 4; i++) {
-        tabela1.addRow(linhas.get(i));
-        }
-        
-        //List lista = new ArrayList();
-        //String[] listaStr;
-        //lista.add(jComboEstado.getSelectedItem() + "");
-        //listaStr = (String[]) lista.toArray(new String[0]);
-        //String coluna[] = {"Dia"};
-        //jLabelEstado.setText(jComboEstado.getSelectedItem() + "");
-        //jLabelCidade.setText(jComboCidade.getSelectedItem() + "");
-        //tabela1.setNumRows(0);
-        //tabela1.addColumn(coluna);
-        //tabela1.addRow(linha1);
-        //tabela1.addRow(linha2);
-        //tabela1.addRow(linha3);*/
+
         abas.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -988,12 +936,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
 
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1038,12 +981,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
-
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
+  
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1088,12 +1026,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
-
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
+  
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1138,12 +1071,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
 
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1188,12 +1116,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
 
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1240,12 +1163,7 @@ public class Previsao extends javax.swing.JFrame {
             tabela.get(aux).addRow(linha5);
             aux++;
         }
-        //tabela.get(0).addRow(linha1);
 
-        /*        for (int i = 0; i < 8; i++) {
-        
-        tabela.get(i).addRow(tabela);
-        }*/
         javax.swing.JLabel labelHora[] = {jLabelHora1, jLabelHora2, jLabelHora3, jLabelHora4, jLabelHora5, jLabelHora6, jLabelHora7, jLabelHora8};
 
         int aux2=0;
@@ -1278,8 +1196,7 @@ public class Previsao extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboEstadoMouseClicked
 
     private void jComboEstadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboEstadoMouseEntered
-        //Gamibarra
-        //jComboCidade.setSelectedIndex(-1);
+    
     }//GEN-LAST:event_jComboEstadoMouseEntered
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
