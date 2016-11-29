@@ -79,6 +79,7 @@ public class Login extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         usuarioLbl.setText("Login");
 
@@ -151,14 +152,17 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logarBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarBttActionPerformed
-       
+
+        
             try {
                 CarregarUsuario();
                if( ConsultarUsuario(usuarioTF.getText(), senhaTF.getText())){
                    
                           Previsao previsao = new Previsao();
+                           previsao.setResizable(false);
 
                           previsao.setVisible(true);
+                          
                }
                 
             } catch (IllegalArgumentException ex) {
@@ -178,6 +182,7 @@ public class Login extends javax.swing.JFrame {
     private void novoUserMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoUserMIActionPerformed
         // TODO add your handling code here:
         CadastroUsuario CadastroUsuario = new CadastroUsuario();
+         CadastroUsuario.setResizable(false);
 
         CadastroUsuario.setVisible(true);
     }//GEN-LAST:event_novoUserMIActionPerformed

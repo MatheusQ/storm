@@ -153,7 +153,7 @@ public class Previsao extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         abas.setToolTipText("");
 
@@ -821,7 +821,7 @@ public class Previsao extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(abas, javax.swing.GroupLayout.PREFERRED_SIZE, 586, Short.MAX_VALUE)
+            .addComponent(abas, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
         );
 
         abas.getAccessibleContext().setAccessibleName("Escolha a cidade");
